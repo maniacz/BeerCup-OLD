@@ -4,7 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:BeerCup.ViewModels"
-             xmlns:image="clr-namespace:BeerCup.Resources"
              mc:Ignorable="d"
              x:Class="BeerCup.Views.VotingPage"
              xmlns:lv="clr-namespace:Xamarin.Forms.MultiSelectListView;assembly=Xamarin.Forms.MultiSelectListView" Padding="0,20,0,0">
@@ -12,71 +11,27 @@
     <ContentPage.BindingContext>
         <local:VotingViewModel />
     </ContentPage.BindingContext>
+    <StackLayout>
+        <ListView x:Name="lvBeers" ItemsSource="{Binding Beers}" lv:MultiSelect.Enable="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <lv:SelectableCell x:Name="beerSelectableCell">
+                        <lv:SelectableCell.CheckView>
+                            <Image Source="select.png" WidthRequest="30" HeightRequest="30"></Image>
+                        </lv:SelectableCell.CheckView>
 
-    <ListView x:Name="lvBeers" ItemsSource="{Binding Beers}" lv:MultiSelect.Enable="True">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <lv:SelectableCell x:Name="beerSelectableCell">
-                    <lv:SelectableCell.CheckView>
-                        <Image Source="select.png" WidthRequest="30" HeightRequest="30"></Image>
-                    </lv:SelectableCell.CheckView>
-
-                    <lv:SelectableCell.DataView>
-                        <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
-                            <Label Text="{Binding BeerNumber}" />
-                            <Label Text="test" />
-                        </StackLayout>
-                    </lv:SelectableCell.DataView>
-                </lv:SelectableCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
-    
-    <!--<ListView.Footer>
-        <Image Source="select.png" WidthRequest="30" HeightRequest="30"></Image>
-            --><!--<Button x:Name="voteButton" Text="Zagłosuj" Clicked="VoteButton_Clicked"></Button>--><!--
-    </ListView.Footer>-->
-    
-    
-    
-    <!--<ListView x:Name="MyListView"
-            ItemsSource="{Binding Items}"
-            ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement" SelectionMode="None">
-        <d:ListView.ItemsSource>
-            <x:array type="{x:type x:string}">
-                <x:string>piwo nr 1</x:string>
-                <x:string x:name="beerno2">piwo nr 2</x:string>
-                <x:string x:name="beerno3">piwo nr 3</x:string>
-                <x:string x:name="beerno4">piwo nr 4</x:string>
-                <x:string x:name="beerno5">piwo nr 5</x:string>
-            </x:array>
-        </d:ListView.ItemsSource>
-        --><!--Built in Cells--><!--
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding .}" d:Text="{Binding .}" />
-            </DataTemplate>
-        </ListView.ItemTemplate>-->
-
-
-        <!--Custom View Cells-->
-        <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}" 
-                   d:Text="{Binding .}"
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
-                   d:Text="Detail"
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
-    
-
+                        <lv:SelectableCell.DataView>
+                            <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
+                                <Label Text="{Binding BeerNumber}" />
+                                <Label Text="test" />
+                            </StackLayout>
+                        </lv:SelectableCell.DataView>
+                    </lv:SelectableCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <Button Text="Głosuj" Command="{Binding VoteCommand}"/>
+            </ListView.Footer>
+        </ListView>
+    </StackLayout>
 </ContentPage>

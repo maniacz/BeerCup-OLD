@@ -30,8 +30,12 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
             <ListView.Footer>
-                <Button Text="Głosuj" Command="{Binding VoteCommand}"/>
+                <Button Text="Głosuj" Command="{Binding VoteCommand}" />
             </ListView.Footer>
+
+            <ListView.Behaviors>
+                <lv:SelectedItemBehavior Command="{Binding SelectBeer}" />
+            </ListView.Behaviors>
         </ListView>
     </StackLayout>
 </ContentPage>

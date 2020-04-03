@@ -12,6 +12,8 @@ namespace BeerCup.ViewModels
 {
     class VotingViewModel : INotifyPropertyChanged
     {
+        #region Property
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -31,9 +33,12 @@ namespace BeerCup.ViewModels
             return true;
         }
 
+        #endregion
+
         public MultiSelectObservableCollection<Beer> Beers { get; }
 
         public ICommand VoteCommand => new Command(Vote);
+        //public ICommand VoteCommand { get { return new Command(Vote); } }
 
         public VotingViewModel()
         {
@@ -46,13 +51,23 @@ namespace BeerCup.ViewModels
             }
 
             //Beers[0].IsSelected = true;
+            //Beers[1].IsSelected = true;
         }
 
         async void Vote()
         {
             if (NumberOfBeersSelected() != 2)
+            {
                 await Application.Current.MainPage.DisplayAlert("Głosowanie", "Musisz wybrać 2 piwa", "OK");
                 //Device.BeginInvokeOnMainThread(async () => { await Application.Current.MainPage.DisplayAlert("Głosowanie", "Musisz wybrać 2 piwa", "OK"); });
+                return;
+            }
+
+            bool selectionConfirmed = await Application.Current.MainPage.DisplayAlert("Głosowanie", "Czy chcesz zagłosować na piwa nr " + SelectedBeers(), "Tak", "Nie");
+            if (selectionConfirmed)
+            {
+
+            }
         }
 
         private int NumberOfBeersSelected()
@@ -65,5 +80,29 @@ namespace BeerCup.ViewModels
             }
             return selectedBeersCount;
         }
+
+        private string SelectedBeers()
+        {
+            List<byte> selectedBeers = new List<byte>();
+            foreach (var beer in Beers)
+            {
+                if (beer.IsSelected)
+                {
+                    selectedBeers.Add(beer.Data.BeerNumber);
+                }
+            }
+            return string.Join(" oraz ", selectedBeers);
+        }
+
+        public ICommand SelectBeer => new Command<Beer>(beer =>
+        {
+            {
+                //Switch value of IsChosenByVoter
+                if (beer.IsChosenByVoter)
+                    beer.IsChosenByVoter = false;
+                else
+                    beer.IsChosenByVoter = true;
+            }
+        });
     }
 }

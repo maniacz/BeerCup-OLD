@@ -87,9 +87,7 @@ namespace BeerCup.ViewModels
             foreach (var beer in Beers)
             {
                 if (beer.IsSelected)
-                {
                     selectedBeers.Add(beer.Data.BeerNumber);
-                }
             }
             return string.Join(" oraz ", selectedBeers);
         }

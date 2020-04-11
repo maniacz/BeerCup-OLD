@@ -1,9 +1,11 @@
-﻿using BeerCup.Models;
+﻿using BeerCup.Data;
+using BeerCup.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.MultiSelectListView;
@@ -54,6 +56,8 @@ namespace BeerCup.ViewModels
             //Beers[1].IsSelected = true;
         }
 
+        VoteManager voteManager = new VoteManager();
+        List<byte> selectedBeers = new List<byte>();
         async void Vote()
         {
             if (NumberOfBeersSelected() != 2)
@@ -66,7 +70,7 @@ namespace BeerCup.ViewModels
             bool selectionConfirmed = await Application.Current.MainPage.DisplayAlert("Głosowanie", "Czy chcesz zagłosować na piwa nr " + SelectedBeers(), "Tak", "Nie");
             if (selectionConfirmed)
             {
-
+                await voteManager.SendYourVotes(selectedBeers);
             }
         }
 
@@ -83,7 +87,6 @@ namespace BeerCup.ViewModels
 
         private string SelectedBeers()
         {
-            List<byte> selectedBeers = new List<byte>();
             foreach (var beer in Beers)
             {
                 if (beer.IsSelected)

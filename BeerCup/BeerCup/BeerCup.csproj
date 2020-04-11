@@ -18,9 +18,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />  
     <PackageReference Include="Xamarin.Forms.MultiSelectListView" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BeerCup.Web\BeerCup.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>

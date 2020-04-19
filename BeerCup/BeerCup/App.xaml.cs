@@ -15,6 +15,7 @@ namespace BeerCup
 
             DependencyService.Register<MockDataStore>();
             //MainPage = new MainPage();
+            //MainPage = new TestPage();
             MainPage = new VotingPage();
         }
 

@@ -67,11 +67,14 @@ namespace BeerCup.ViewModels
                 return;
             }
 
-            bool selectionConfirmed = await Application.Current.MainPage.DisplayAlert("Głosowanie", "Czy chcesz zagłosować na piwa nr " + SelectedBeers(), "Tak", "Nie");
-            if (selectionConfirmed)
-            {
-                await voteManager.SendYourVotes(selectedBeers);
-            }
+            //bool selectionConfirmed = await Application.Current.MainPage.DisplayAlert("Głosowanie", "Czy chcesz zagłosować na piwa nr " + SelectedBeers(), "Tak", "Nie");
+            //if (selectionConfirmed)
+            //{
+            //    await voteManager.SendYourVotes(selectedBeers);
+            //}
+
+            SelectedBeers();
+            await voteManager.SendYourVotes(selectedBeers);
         }
 
         private int NumberOfBeersSelected()

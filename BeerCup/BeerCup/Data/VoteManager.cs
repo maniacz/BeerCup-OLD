@@ -1,16 +1,18 @@
-﻿using Newtonsoft.Json;
+﻿using BeerCup.Web.Database.Entities;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using BeerCup.Web.Database.Entities;
+//using BeerCup.Web.Database.Entities;
 
 namespace BeerCup.Data
 {
     public class VoteManager
     {
-        const string Url = "https://localhost:44328/api/vote/";
+        //const string Url = "http://localhost/BeerCup.Web/api/vote";
+        const string Url = "http://10.0.2.2/BeerCup.Web/api/vote";
 
         private string authorizationKey;
 
@@ -20,6 +22,7 @@ namespace BeerCup.Data
 
             //todo: Ogarnij autoryzację
             #region Authorization
+            /*
             if (string.IsNullOrEmpty(authorizationKey))
             {
                 authorizationKey = await client.GetStringAsync(Url + "login");
@@ -27,20 +30,51 @@ namespace BeerCup.Data
             }
 
             client.DefaultRequestHeaders.Add("Authorization", authorizationKey);
+            */
             #endregion
 
             client.DefaultRequestHeaders.Add("Accept", "application/json");
             return client;
         }
 
+        /*
         internal async Task<IEnumerable<BattleVoteEntity>> GetAllVotes()
         {
             return null;
         }
+        */
 
         internal async Task SendYourVotes(List<byte> selectedBeers)
         {
+            foreach (byte beerNo in selectedBeers)
+            {
+                try
+                {
+                    await VoteForTheBeer(beerNo);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
 
+
+        }
+
+        private async Task VoteForTheBeer(byte beerNo)
+        {
+            HttpClient client = await GetClient().ConfigureAwait(false);
+            BattleVoteEntity vote = new BattleVoteEntity(3, 3, beerNo);
+            StringContent content = new StringContent(JsonConvert.SerializeObject(vote), Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(Url, content);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async void GetAllVotes()
+        {
+            HttpClient client = new HttpClient();
+            var response = await client.GetAsync(Url);
+            response.EnsureSuccessStatusCode();
         }
     }
 }

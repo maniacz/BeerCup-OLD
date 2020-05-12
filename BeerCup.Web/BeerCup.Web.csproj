@@ -117,7 +117,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\VoteController.cs" />
     <Compile Include="Database\DatabaseContext.cs" />
+    <Compile Include="Database\Entities\BattleResultsEntity.cs" />
     <Compile Include="Database\Entities\BattleVoteEntity.cs" />
+    <Compile Include="Database\Entities\BattleEntity.cs" />
+    <Compile Include="Database\Entities\BreweryEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

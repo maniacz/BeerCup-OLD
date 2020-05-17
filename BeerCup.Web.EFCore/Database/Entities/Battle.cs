@@ -5,11 +5,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace BeerCup.Web.Database.Entities
+namespace BeerCup.Web.EFCore.Database.Entities
 {
-    public class BattleEntity
+    public class Battle
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Battle()
+        {
+            BreweryBattles = new List<BreweryBattle>();
+        }
+
         public int Id { get; set; }
 
         public string BattleStyle { get; set; }
@@ -17,5 +21,7 @@ namespace BeerCup.Web.Database.Entities
         public DateTime BattleStartTime { get; set; }
 
         public DateTime BattleEndTime { get; set; }
+
+        public List<BreweryBattle> BreweryBattles { get; set; }
     }
 }

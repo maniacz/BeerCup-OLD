@@ -1,4 +1,4 @@
-﻿using BeerCup.Web.Database.Entities;
+﻿using BeerCup.Web.EFCore.Database.Entities;
 using BeerCup.Web.Models;
 using BeerCup.Web.Repositories;
 using System;
@@ -44,7 +44,7 @@ namespace BeerCup.Web.Controllers
         }
 
         // POST api/<controller>
-        public HttpResponseMessage Post(BattleVoteEntity vote)
+        public HttpResponseMessage Post(BattleVote vote)
         {
             var response = new BaseResponse();
 

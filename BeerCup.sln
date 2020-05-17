@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerCup", "BeerCup\BeerCup\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerCup.Web", "BeerCup.Web\BeerCup.Web.csproj", "{173F6A1F-6909-438C-BFBB-4413CD213E46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerCup.Web.EFCore", "BeerCup.Web.EFCore\BeerCup.Web.EFCore.csproj", "{79DCA3E7-8A07-452B-9074-2AB4220139A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,18 @@ Global
 		{173F6A1F-6909-438C-BFBB-4413CD213E46}.Release|iPhone.Build.0 = Release|Any CPU
 		{173F6A1F-6909-438C-BFBB-4413CD213E46}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{173F6A1F-6909-438C-BFBB-4413CD213E46}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{79DCA3E7-8A07-452B-9074-2AB4220139A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79DCA3E7-8A07-452B-9074-2AB4220139A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79DCA3E7-8A07-452B-9074-2AB4220139A3}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{79DCA3E7-8A07-452B-9074-2AB4220139A3}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{79DCA3E7-8A07-452B-9074-2AB4220139A3}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{79DCA3E7-8A07-452B-9074-2AB4220139A3}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{79DCA3E7-8A07-452B-9074-2AB4220139A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79DCA3E7-8A07-452B-9074-2AB4220139A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79DCA3E7-8A07-452B-9074-2AB4220139A3}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{79DCA3E7-8A07-452B-9074-2AB4220139A3}.Release|iPhone.Build.0 = Release|Any CPU
+		{79DCA3E7-8A07-452B-9074-2AB4220139A3}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{79DCA3E7-8A07-452B-9074-2AB4220139A3}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

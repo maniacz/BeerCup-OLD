@@ -1,4 +1,4 @@
-﻿using BeerCup.Web.Database.Entities;
+﻿using BeerCup.Web.EFCore.Database.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +8,7 @@ namespace BeerCup.Web.Models
 {
     public class VotesResponse : BaseResponse
     {
-        public List<BattleVoteEntity> Votes { get; set; }
+        public List<BattleVote> Votes { get; set; }
+        public List<Battle> Battles { get; set; }
     }
 }

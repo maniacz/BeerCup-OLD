@@ -1,4 +1,4 @@
-﻿using BeerCup.Web.Database.Entities;
+﻿using BeerCup.Web.EFCore.Database.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +9,10 @@ namespace BeerCup.Web.Repositories
 {
     public interface IVoteRepository
     {
-        void Add(BattleVoteEntity vote);
-        List<BattleVoteEntity> GetAll();
+        void Add(BattleVote vote);
+        List<BattleVote> GetAll();
+
+        List<Battle> GetBattles();
 
         void Save();
     }

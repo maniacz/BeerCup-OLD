@@ -4,14 +4,16 @@ using BeerCup.Web.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BeerCup.Web.Migrations
 {
     [DbContext(typeof(BeerCupContext))]
-    partial class BeerCupContextModelSnapshot : ModelSnapshot
+    [Migration("20200523135837_UserAccount")]
+    partial class UserAccount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -207,6 +207,7 @@
     <Compile Include="Database\Entities\BattleVote.cs" />
     <Compile Include="Database\Entities\Brewery.cs" />
     <Compile Include="Database\Entities\BreweryBattle.cs" />
+    <Compile Include="Database\Entities\UserAccount.cs" />
     <Compile Include="Database\Repositories\IVoteRepository.cs" />
     <Compile Include="Database\Repositories\VoteDbRepository.cs" />
     <Compile Include="Global.asax.cs">
@@ -215,6 +216,10 @@
     <Compile Include="Migrations\20200518120904_Init.cs" />
     <Compile Include="Migrations\20200518120904_Init.designer.cs">
       <DependentUpon>20200518120904_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200523135837_UserAccount.cs" />
+    <Compile Include="Migrations\20200523135837_UserAccount.designer.cs">
+      <DependentUpon>20200523135837_UserAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\BeerCupContextModelSnapshot.cs" />
     <Compile Include="Models\BaseResponse.cs" />

@@ -5,6 +5,7 @@ namespace BeerCup.Web.App_Start
 {
     using System;
     using System.Web;
+    using BeerCup.Web.Controllers.Repositories;
     using BeerCup.Web.Database.Repositories;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
@@ -62,6 +63,7 @@ namespace BeerCup.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IVoteRepository>().To<VoteDbRepository>();
+            kernel.Bind<ICreateAccountRepository>().To<CreateAccountRepository>();
         }
     }
 }

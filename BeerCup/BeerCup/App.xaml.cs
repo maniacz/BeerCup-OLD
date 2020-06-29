@@ -16,7 +16,8 @@ namespace BeerCup
             DependencyService.Register<MockDataStore>();
             //MainPage = new MainPage();
             //MainPage = new TestPage();
-            MainPage = new VotingPage();
+            //MainPage = new VotingPage();
+            MainPage = new CreateAccountPage();
         }
 
         protected override void OnStart()

@@ -10,7 +10,7 @@ namespace BeerCup.Data
 {
     public class UserAccountManager
     {
-        const string Url = "http://10.0.2.2/BeerCup.Web/api/vote";
+        const string Url = "http://10.0.2.2/BeerCup.Web/api/CreateAccount";
 
         private async Task<HttpClient> GetClient()
         {

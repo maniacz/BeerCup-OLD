@@ -23,6 +23,10 @@ namespace BeerCup.Views
 
         private void Register_Clicked(object sender, EventArgs e)
         {
+            //Debug
+            UserName.Text = "Ralf";
+            Password1.Text = Password2.Text = "Loren";
+
             if (Password1.Text.Equals(Password2.Text))
                 createAccountViewModel.RegisterUser(UserName.Text, Password2.Text);
             else

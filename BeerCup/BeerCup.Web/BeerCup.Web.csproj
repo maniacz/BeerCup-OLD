@@ -201,6 +201,9 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CreateAccountController.cs" />
+    <Compile Include="Database\Repositories\CreateAccountRepository.cs" />
+    <Compile Include="Database\Repositories\ICreateAccountRepository.cs" />
     <Compile Include="Controllers\VoteController.cs" />
     <Compile Include="Database\BeerCupContext.cs" />
     <Compile Include="Database\Entities\Battle.cs" />
@@ -210,6 +213,7 @@
     <Compile Include="Database\Entities\UserAccount.cs" />
     <Compile Include="Database\Repositories\IVoteRepository.cs" />
     <Compile Include="Database\Repositories\VoteDbRepository.cs" />
+    <Compile Include="DTOs\CreateAccountRequestDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

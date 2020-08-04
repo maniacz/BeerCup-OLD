@@ -6,6 +6,9 @@ namespace BeerCup.Models
 {
     public enum MenuItemType
     {
+        TodaysBattle,
+        MyAccount,
+        Battles,
         Browse,
         About
     }

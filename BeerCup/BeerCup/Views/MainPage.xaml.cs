@@ -30,6 +30,15 @@ namespace BeerCup.Views
             {
                 switch (id)
                 {
+                    case (int)MenuItemType.TodaysBattle:
+                        MenuPages.Add(id, new NavigationPage(new VotingPage()));
+                        break;
+                    case (int)MenuItemType.MyAccount:
+                        MenuPages.Add(id, new NavigationPage(new UserAccountPage()));
+                        break;
+                    case (int)MenuItemType.Battles:
+                        MenuPages.Add(id, new NavigationPage(new FinishedBattlesPage()));
+                        break;
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;

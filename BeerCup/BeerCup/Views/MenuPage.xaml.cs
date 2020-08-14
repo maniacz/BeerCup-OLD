@@ -20,6 +20,9 @@ namespace BeerCup.Views
 
             menuItems = new List<HomeMenuItem>
             {
+                new HomeMenuItem {Id = MenuItemType.TodaysBattle, Title="Dzisiejsza bitwa"},
+                new HomeMenuItem {Id = MenuItemType.MyAccount, Title="Moje konto"},
+                new HomeMenuItem {Id = MenuItemType.Battles, Title="Bitwy"},
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };

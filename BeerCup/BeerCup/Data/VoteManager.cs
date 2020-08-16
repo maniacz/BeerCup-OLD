@@ -61,14 +61,22 @@ namespace BeerCup.Data
 
         }
 
+        private bool isBusy = false;
         private async Task VoteForTheBeer(byte beerNo)
         {
             HttpClient client = await GetClient().ConfigureAwait(false);
             //todo: Trzeba zaimplementować przypisywanie wartości battleId i voterId
             BattleVoteEntity vote = new BattleVoteEntity(3, 3, beerNo);
             StringContent content = new StringContent(JsonConvert.SerializeObject(vote), Encoding.UTF8, "application/json");
-            var response = await client.PostAsync(Url, content);
-            response.EnsureSuccessStatusCode();
+            string tempJsonContent = await content.ReadAsStringAsync();
+
+            if (!isBusy)
+            {
+                isBusy = true;
+                var response = await client.PostAsync(Url, content);
+                response.EnsureSuccessStatusCode();
+                isBusy = false;
+            }
         }
 
         public async void GetAllVotes()

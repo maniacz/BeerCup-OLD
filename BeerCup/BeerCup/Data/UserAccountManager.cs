@@ -33,14 +33,31 @@ namespace BeerCup.Data
             return client;
         }
 
-        internal async Task RegisterNewUser(string userName, string password)
+        internal async Task<string> RegisterNewUser(string userName, string password)
         {
             HttpClient client = await GetClient().ConfigureAwait(false);
             UserAccountEntity newUser = new UserAccountEntity(userName, password);
 
-            StringContent content = new StringContent(JsonConvert.SerializeObject(newUser), Encoding.UTF8, "application/json");
-            var response = await client.PostAsync(Url, content);
-            response.EnsureSuccessStatusCode();
+            try
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(newUser), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(Url, content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    //return await response.Content.ReadAsStringAsync();
+                    //todo: wywalić tego tempa przy releasie
+                    var temp = response.Content.ReadAsStringAsync().Result;
+                    throw new HttpRequestException("User not created");
+                }
+
+                response.EnsureSuccessStatusCode();
+                return "OK";
+            }
+            catch (HttpRequestException ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

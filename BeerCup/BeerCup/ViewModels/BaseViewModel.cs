@@ -52,5 +52,23 @@ namespace BeerCup.ViewModels
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
+        protected void SetValue<T>(ref T backingField,
+                   T value,
+                   [CallerMemberName] string propertyName = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(backingField, value))
+            {
+                return;
+            }
+
+            backingField = value;
+            OnPropChanged(propertyName);
+        }
+
+        protected void OnPropChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

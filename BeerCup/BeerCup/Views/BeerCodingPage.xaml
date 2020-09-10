@@ -7,6 +7,11 @@
              x:Class="BeerCup.Views.BeerCodingPage">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <!--<Stepper x:Name="BreweriesCount" Maximum="10" Minimum="2" Increment="1" Value="5" ValueChanged="{Binding BreweriesCountChangedCommand}" />-->
+                <Stepper x:Name="BreweriesCount" Maximum="10" Minimum="2" Increment="1" Value="5" ValueChanged="BreweriesCount_ValueChanged"/>
+                <Label Text="{Binding Source={x:Reference BreweriesCount}, Path=Value}" />
+            </StackLayout>
             <ListView x:Name="DiscoveredItemsListView"
                 HasUnevenRows="True"
                 ItemsSource="{Binding StartingBreweriesList}"

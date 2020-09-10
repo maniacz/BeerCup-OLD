@@ -19,6 +19,7 @@ namespace BeerCup.ViewModels
         private string firstPickerItem;
 
         public ICommand ConfirmBeerCodingCommand { get; }
+        public ICommand BreweriesCountChangedCommand { get; }
 
         public BeerCodingViewModel()
         {
@@ -27,6 +28,7 @@ namespace BeerCup.ViewModels
             PopulateDiscoveredItemList();
 
             ConfirmBeerCodingCommand = new Command(OnConfirmBeerCodingCommand);
+            BreweriesCountChangedCommand = new Command(OnBreweriesCountChangedCommand);
         }
 
         private List<string> PopulateCollection()
@@ -103,6 +105,11 @@ namespace BeerCup.ViewModels
             }
         }
         */
+
+        private void OnBreweriesCountChangedCommand()
+        {
+
+        }
     }
 
     internal class DiscoveredItem : BaseViewModel

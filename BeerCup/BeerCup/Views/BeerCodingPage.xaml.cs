@@ -19,5 +19,10 @@ namespace BeerCup.Views
 
             BindingContext = new BeerCodingViewModel();
         }
+
+        private void BreweriesCount_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            
+        }
     }
 }

@@ -9,7 +9,7 @@
         <StackLayout>
             <ListView x:Name="DiscoveredItemsListView"
                 HasUnevenRows="True"
-                ItemsSource="{Binding DiscoveredItemList}"
+                ItemsSource="{Binding StartingBreweriesList}"
                 VerticalOptions="StartAndExpand">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -28,6 +28,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
+            <Stepper Value="{Binding StartingBreweriesList.Count}" ValueChanged="Stepper_ValueChanged" />
             <Button Text="Zatwierdź kodowanie" Command="{Binding ConfirmBeerCodingCommand}" />
         </StackLayout>
     </ContentPage.Content>

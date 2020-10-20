@@ -13,11 +13,19 @@ namespace BeerCup.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BeerCodingPage : ContentPage
     {
+        private BeerCodingViewModel _vm;
+
         public BeerCodingPage()
         {
             InitializeComponent();
 
-            BindingContext = new BeerCodingViewModel();
+            BindingContext = _vm = new BeerCodingViewModel();
+        }
+
+        private void Stepper_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+
+            _vm.BreweriesCountChangedCommand.Execute(sender);
         }
     }
 }

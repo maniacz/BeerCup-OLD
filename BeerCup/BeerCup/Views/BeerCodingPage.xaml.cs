@@ -27,5 +27,10 @@ namespace BeerCup.Views
 
             _vm.BreweriesCountChangedCommand.Execute(sender);
         }
+
+        private void BreweriesCount_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            
+        }
     }
 }

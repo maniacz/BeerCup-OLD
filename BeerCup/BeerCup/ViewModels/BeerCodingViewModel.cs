@@ -13,12 +13,13 @@ namespace BeerCup.ViewModels
 {
     class BeerCodingViewModel : BaseViewModel
     {
-        public List<DiscoveredItem> DiscoveredItemList { get; set; }
+        public ObservableCollection<StartingBrewery> StartingBreweriesList { get; set; }
 
         private List<string> pickerItems;
         private string firstPickerItem;
 
         public ICommand ConfirmBeerCodingCommand { get; }
+        public ICommand BreweriesCountChangedCommand { get; }
 
         public BeerCodingViewModel()
         {
@@ -27,6 +28,23 @@ namespace BeerCup.ViewModels
             PopulateDiscoveredItemList();
 
             ConfirmBeerCodingCommand = new Command(OnConfirmBeerCodingCommand);
+            BreweriesCountChangedCommand = new Command(OnBreweriesCountChangedCommand);
+        }
+
+
+        private void OnBreweriesCountChangedCommand(object stepper)
+        {
+            double stepperValue = (stepper as Stepper).Value;
+
+            if (stepperValue > StartingBreweriesList.Count)
+            {
+                StartingBreweriesList.Add(new StartingBrewery { PickerList = pickerItems, SelectedPickerItem = firstPickerItem, id = (int)stepperValue });
+            }
+
+            if (stepperValue < StartingBreweriesList.Count)
+            {
+                StartingBreweriesList.Remove(StartingBreweriesList.Last());
+            }
         }
 
         private List<string> PopulateCollection()
@@ -44,16 +62,16 @@ namespace BeerCup.ViewModels
         }
         private void PopulateDiscoveredItemList()
         {
-            DiscoveredItemList = new List<DiscoveredItem>()
+            StartingBreweriesList = new ObservableCollection<StartingBrewery>()
             {
-                new DiscoveredItem {PickerList = pickerItems, SelectedPickerItem = firstPickerItem, id=1},
-                new DiscoveredItem {PickerList = pickerItems, SelectedPickerItem = firstPickerItem, id=2},
-                new DiscoveredItem {PickerList = pickerItems, SelectedPickerItem = firstPickerItem, id=3},
-                new DiscoveredItem {PickerList = pickerItems, SelectedPickerItem = firstPickerItem, id=4},
-                new DiscoveredItem {PickerList = pickerItems, SelectedPickerItem = firstPickerItem, id=5},
+                new StartingBrewery {PickerList = pickerItems, SelectedPickerItem = firstPickerItem, id=1},
+                new StartingBrewery {PickerList = pickerItems, SelectedPickerItem = firstPickerItem, id=2},
+                new StartingBrewery {PickerList = pickerItems, SelectedPickerItem = firstPickerItem, id=3},
+                new StartingBrewery {PickerList = pickerItems, SelectedPickerItem = firstPickerItem, id=4},
+                new StartingBrewery {PickerList = pickerItems, SelectedPickerItem = firstPickerItem, id=5},
             };
 
-            foreach (var discoveredItem in DiscoveredItemList)
+            foreach (var discoveredItem in StartingBreweriesList)
             {
                 discoveredItem.PickedEvent += BreweryPicked;
             }
@@ -74,10 +92,10 @@ namespace BeerCup.ViewModels
         private void ValidateBeerCoding()
         {
             List<string> selectedBreweries = new List<string>();
-            DiscoveredItemList.ForEach((x) => selectedBreweries.Add(x.SelectedPickerItem));
+            //StartingBreweriesList.ForEach((x) => selectedBreweries.Add(x.SelectedPickerItem));
 
             int distinctBreweriesSelected = selectedBreweries.Distinct().Count();
-            if (distinctBreweriesSelected < DiscoveredItemList.Count)
+            if (distinctBreweriesSelected < StartingBreweriesList.Count)
             {
 
             }
@@ -105,7 +123,7 @@ namespace BeerCup.ViewModels
         */
     }
 
-    internal class DiscoveredItem : BaseViewModel
+    internal class StartingBrewery : BaseViewModel
     {
         public delegate void Picked();
         public event Picked PickedEvent;

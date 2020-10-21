@@ -38,6 +38,14 @@ namespace BeerCup.Web.Database
             modelBuilder.Entity<BattleVote>().Property(v => v.CTime).HasDefaultValueSql("getdate()");
         }
 
+        //todo: Tego konstruktora nalezy użyć w docelowej aplikacji ze względu na disconnected scenario
+        /*
+        public BeerCupContext()
+        {
+            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+        }
+        */
+
         public DbSet<Battle> Battles { get; set; }
 
         public DbSet<BreweryBattle> BattlesResults { get; set; }

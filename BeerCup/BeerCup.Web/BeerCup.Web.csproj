@@ -201,6 +201,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BattlesController.cs" />
     <Compile Include="Controllers\CreateAccountController.cs" />
     <Compile Include="Database\Repositories\CreateAccountRepository.cs" />
     <Compile Include="Database\Repositories\ICreateAccountRepository.cs" />

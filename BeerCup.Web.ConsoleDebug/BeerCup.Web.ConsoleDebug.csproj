@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeerCup\BeerCup.Web\BeerCup.Web.csproj">
+      <Project>{b1c017ad-29c7-4645-b2a3-63c5f8ab52b2}</Project>
+      <Name>BeerCup.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

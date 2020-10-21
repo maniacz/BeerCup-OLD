@@ -25,7 +25,11 @@ namespace BeerCup.Web.Database
             //optionsBuilder.UseSqlServer(@"Data Source = np:\\.\pipe\LOCALDB#A9DE3E14\tsql\query; Initial Catalog = BeerCupData; User ID = beercupadmin; Password=beercup;");
             //optionsBuilder.UseSqlServer(@"Data Source = np:\\.\pipe\localdb#7fd6386a\tsql\query; Initial Catalog = BeerCupData; User ID = beercupadmin; Password=beercup;");
 
-            optionsBuilder.UseSqlServer(@"Data Source = .\SQLEXPRESS; Initial Catalog = BeerCupData; Trusted_Connection=True;");
+            //poniższy connection string działa dla normalnego (not elevated) usera
+            //optionsBuilder.UseSqlServer(@"Data Source = .\SQLEXPRESS; Initial Catalog = BeerCupData; Trusted_Connection=True;");
+
+            //connection string dla usera bazodanowego - sa
+            optionsBuilder.UseSqlServer(@"Data Source = .\SQLEXPRESS; Initial Catalog = BeerCupData; User ID = sa; Password=sysadmin1.;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

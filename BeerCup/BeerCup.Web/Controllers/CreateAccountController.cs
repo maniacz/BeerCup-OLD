@@ -27,7 +27,7 @@ namespace BeerCup.Web.Controllers
         // GET api/<controller>/5
         public string Get(int id)
         {
-            return "value";
+            return "elo";
         }
 
         // POST api/<controller>

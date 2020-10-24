@@ -30,3 +30,18 @@ GO
 i potem dodaæ mu role (PKM>Properties>Membership) db_reader i db_writer
 
 ********************************************************************************************************************************************************************************************
+[Android App]
+
+Kiedy przy debugu apki na Androida wiesza nam siê deploy na:
+Waiting for runtime checks to complete
+
+To robimy:
+https://stackoverflow.com/questions/50345987/xamarin-waiting-for-runtime-checks-to-complete-and-vs-emulator
+
+[...]
+You need restart ADB service. Visual Studio-Service-Android-restart adb service. It helped for me.
+
+In Visual Studio from the Menu Bar: Tools -> Android -> Restart Adb Server
+[...]
+
+********************************************************************************************************************************************************************************************

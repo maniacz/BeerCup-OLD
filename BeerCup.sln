@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerCup.Web", "BeerCup\Beer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerCup.Web.DummyConsoleAppForEFCoreMigrations", "BeerCup.Web.DummyConsoleAppForEFCoreMigrations\BeerCup.Web.DummyConsoleAppForEFCoreMigrations.csproj", "{FBA35CD0-C3F8-448A-B73E-BFF34B69D129}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{558B09F5-65A5-4DB7-85FA-2D4120AA5063}"
+	ProjectSection(SolutionItems) = preProject
+		Napotkane problemy.txt = Napotkane problemy.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

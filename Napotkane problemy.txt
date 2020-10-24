@@ -1,0 +1,14 @@
+********************************************************************************************************************************************************************************************
+
+Przy wywo³aniu GET przez link http://localhost/BeerCup.Web/api/vote
+Votes	null
+Battles	null
+ErrorMessage	"Inicjator typów zg³osi³ wyj¹tek dla typu 'Microsoft.Data.SqlClient.SNINativeMethodWrapper'."
+
+https://stackoverflow.com/questions/45382993/unable-to-load-dll-sni-dll-entity-framework-core
+
+[...]
+Set the AppPool being used to run as 'LocalSystem' under Identity, this way the appPool will be treated as having higher permissions and should have access.
+[...]
+
+********************************************************************************************************************************************************************************************

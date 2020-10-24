@@ -1,4 +1,5 @@
 ********************************************************************************************************************************************************************************************
+[Web App]
 
 Przy wywo³aniu GET przez link http://localhost/BeerCup.Web/api/vote
 Votes	null
@@ -10,5 +11,22 @@ https://stackoverflow.com/questions/45382993/unable-to-load-dll-sni-dll-entity-f
 [...]
 Set the AppPool being used to run as 'LocalSystem' under Identity, this way the appPool will be treated as having higher permissions and should have access.
 [...]
+
+********************************************************************************************************************************************************************************************
+[Web App]
+
+Postman:
+    "ErrorMessage": "The server principal \"ZARZ¥DZANIE NT\\SYSTEM\" is not able to access the database \"BeerCupData\" under the current security context.\r\nCannot open database \"BeerCupData\" requested by the login. The login failed.
+
+W MS SQL trzeba dodaæ usera (np. za pomoc¹ poni¿szego skryptu):
+
+USE [BeerCupData]
+GO
+
+/** Object:  User [iisuser]    Script Date: 2020-10-24 13:05:52 **/
+CREATE USER [iisuser] FOR LOGIN [IIS APPPOOL\DefaultAppPool] WITH DEFAULT_SCHEMA=[dbo]
+GO
+
+i potem dodaæ mu role (PKM>Properties>Membership) db_reader i db_writer
 
 ********************************************************************************************************************************************************************************************

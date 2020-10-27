@@ -86,10 +86,13 @@ namespace BeerCup.ViewModels
 
         private void OnConfirmBeerCodingCommand()
         {
-            ValidateBeerCoding();
+            if (IsBeerCodingOk())
+            {
+
+            }
         }
 
-        private void ValidateBeerCoding()
+        private bool IsBeerCodingOk()
         {
             List<string> selectedBreweries = new List<string>();
             //StartingBreweriesList.ForEach((x) => selectedBreweries.Add(x.SelectedPickerItem));
@@ -97,7 +100,13 @@ namespace BeerCup.ViewModels
             int distinctBreweriesSelected = selectedBreweries.Distinct().Count();
             if (distinctBreweriesSelected < StartingBreweriesList.Count)
             {
-
+                //todo: Niezgodne z MVVM
+                App.Current.MainPage.DisplayAlert("Kodowanie piw", "Niepoprawne kodowanie piw \nPowtórzony browar", "OK");
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 

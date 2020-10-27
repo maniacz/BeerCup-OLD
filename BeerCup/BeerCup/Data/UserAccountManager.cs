@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace BeerCup.Data
 {
-    public class UserAccountManager
+    public class UserAccountManager : DbManager
     {
         const string Url = "http://10.0.2.2/BeerCup.Web/api/CreateAccount";
 
+        /*
         private async Task<HttpClient> GetClient()
         {
             HttpClient client = new HttpClient();
@@ -26,12 +27,13 @@ namespace BeerCup.Data
             }
 
             client.DefaultRequestHeaders.Add("Authorization", authorizationKey);
-            */
+            * /
             #endregion
 
             client.DefaultRequestHeaders.Add("Accept", "application/json");
             return client;
         }
+        */
 
         internal async Task<string> RegisterNewUser(string userName, string password)
         {

@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace BeerCup.Data
 {
-    public class VoteManager
+    public class VoteManager : DbManager
     {
         //const string Url = "http://localhost/BeerCup.Web/api/vote";
         const string Url = "http://10.0.2.2/BeerCup.Web/api/vote";
 
+        /*
         private string authorizationKey;
 
         private async Task<HttpClient> GetClient()
@@ -30,12 +31,13 @@ namespace BeerCup.Data
             }
 
             client.DefaultRequestHeaders.Add("Authorization", authorizationKey);
-            */
+            * /
             #endregion
 
             client.DefaultRequestHeaders.Add("Accept", "application/json");
             return client;
         }
+        */
 
         /*
         internal async Task<IEnumerable<BattleVoteEntity>> GetAllVotes()

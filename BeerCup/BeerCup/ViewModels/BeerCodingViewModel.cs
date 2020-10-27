@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeerCup.Data;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -60,6 +61,7 @@ namespace BeerCup.ViewModels
 
             return myCollection;
         }
+
         private void PopulateDiscoveredItemList()
         {
             StartingBreweriesList = new ObservableCollection<StartingBrewery>()
@@ -88,8 +90,21 @@ namespace BeerCup.ViewModels
         {
             if (IsBeerCodingOk())
             {
-
+                Dictionary<int, string> beerCoding = GetBeerCoding();
+                BeerCodingManager beerCodingManager = new BeerCodingManager();
+                beerCodingManager.ConfirmBeerCodingForBattle(beerCoding);
             }
+        }
+
+        private Dictionary<int, string> GetBeerCoding()
+        {
+            Dictionary<int, string> beerCoding = new Dictionary<int, string>();
+            foreach (var item in StartingBreweriesList)
+            {
+                beerCoding.Add(item.id, item.SelectedPickerItem);
+            }
+
+            return beerCoding;
         }
 
         private bool IsBeerCodingOk()

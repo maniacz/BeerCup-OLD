@@ -109,10 +109,7 @@ namespace BeerCup.ViewModels
 
         private bool IsBeerCodingOk()
         {
-            List<string> selectedBreweries = new List<string>();
-            //StartingBreweriesList.ForEach((x) => selectedBreweries.Add(x.SelectedPickerItem));
-
-            int distinctBreweriesSelected = selectedBreweries.Distinct().Count();
+            int distinctBreweriesSelected = StartingBreweriesList.Distinct<StartingBrewery>().Count();
             if (distinctBreweriesSelected < StartingBreweriesList.Count)
             {
                 //todo: Niezgodne z MVVM
@@ -147,7 +144,7 @@ namespace BeerCup.ViewModels
         */
     }
 
-    internal class StartingBrewery : BaseViewModel
+    internal class StartingBrewery : BaseViewModel, IEquatable<StartingBrewery>
     {
         public delegate void Picked();
         public event Picked PickedEvent;
@@ -169,6 +166,27 @@ namespace BeerCup.ViewModels
                     PickedEvent();
                 }
             }
+        }
+
+        //metoda wymagana do poprawnego działania Distinct<StartingBrewery>
+        public bool Equals(StartingBrewery other)
+        {
+            //obiekt jest nullem
+            if (Object.ReferenceEquals(other, null))
+                return false;
+
+            //obiekty wskazują na to samo
+            if (Object.ReferenceEquals(this, other))
+                return false;
+
+            return selectedPickerItem.Equals(other.selectedPickerItem);
+        }
+
+        //metoda wymagana do poprawnego działania Distinct<StartingBrewery>
+        public override int GetHashCode()
+        {
+            //return hash code for the selectedPickerItem field if it is not null.
+            return selectedPickerItem == null ? 0 : selectedPickerItem.GetHashCode();
         }
     }
 }

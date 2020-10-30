@@ -203,6 +203,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CreateAccountController.cs" />
+    <Compile Include="Database\Entities\CurrentBattle.cs" />
     <Compile Include="Database\Repositories\CreateAccountRepository.cs" />
     <Compile Include="Database\Repositories\ICreateAccountRepository.cs" />
     <Compile Include="Controllers\VoteController.cs" />
@@ -225,6 +226,10 @@
     <Compile Include="Migrations\20200523135837_UserAccount.cs" />
     <Compile Include="Migrations\20200523135837_UserAccount.designer.cs">
       <DependentUpon>20200523135837_UserAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20201030080448_CurrentBattle.cs" />
+    <Compile Include="Migrations\20201030080448_CurrentBattle.designer.cs">
+      <DependentUpon>20201030080448_CurrentBattle.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\BeerCupContextModelSnapshot.cs" />
     <Compile Include="Models\BaseResponse.cs" />

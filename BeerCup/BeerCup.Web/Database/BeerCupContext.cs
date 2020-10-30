@@ -32,6 +32,10 @@ namespace BeerCup.Web.Database
         {
             modelBuilder.Entity<BreweryBattle>().HasKey(b => new { b.BreweryId, b.BattleId });
             modelBuilder.Entity<BattleVote>().Property(v => v.CTime).HasDefaultValueSql("getdate()");
+
+            modelBuilder.Entity<CurrentBattle>().HasKey(cb => cb.Lock);
+            modelBuilder.Entity<CurrentBattle>().Property(cb => cb.Lock).HasDefaultValue('X');
+            modelBuilder.Entity<CurrentBattle>(entity => entity.HasCheckConstraint("CK_T1_Locked", "[Lock]='X'"));
         }
 
         public DbSet<Battle> Battles { get; set; }

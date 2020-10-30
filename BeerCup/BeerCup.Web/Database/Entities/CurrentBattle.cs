@@ -8,6 +8,6 @@ namespace BeerCup.Web.Database.Entities
     public class CurrentBattle
     {
         public char Lock { get; set; }
-        public int CurrentBattleId { get; set; }
+        public int BattleId { get; set; }
     }
 }

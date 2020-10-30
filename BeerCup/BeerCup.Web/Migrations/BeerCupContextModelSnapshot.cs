@@ -15,7 +15,7 @@ namespace BeerCup.Web.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.4")
+                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -112,7 +112,7 @@ namespace BeerCup.Web.Migrations
                         .HasColumnType("nvarchar(1)")
                         .HasDefaultValue("X");
 
-                    b.Property<int>("CurrentBattleId")
+                    b.Property<int>("BattleId")
                         .HasColumnType("int");
 
                     b.HasKey("Lock");

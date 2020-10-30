@@ -11,7 +11,7 @@ namespace BeerCup.Web.Migrations
                 columns: table => new
                 {
                     Lock = table.Column<string>(nullable: false, defaultValue: "X"),
-                    CurrentBattleId = table.Column<int>(nullable: false)
+                    BattleId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

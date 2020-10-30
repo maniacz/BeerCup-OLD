@@ -227,9 +227,9 @@
     <Compile Include="Migrations\20200523135837_UserAccount.designer.cs">
       <DependentUpon>20200523135837_UserAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20201030080448_CurrentBattle.cs" />
-    <Compile Include="Migrations\20201030080448_CurrentBattle.designer.cs">
-      <DependentUpon>20201030080448_CurrentBattle.cs</DependentUpon>
+    <Compile Include="Migrations\20201030133900_CurrentBattle.cs" />
+    <Compile Include="Migrations\20201030133900_CurrentBattle.designer.cs">
+      <DependentUpon>20201030133900_CurrentBattle.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\BeerCupContextModelSnapshot.cs" />
     <Compile Include="Models\BaseResponse.cs" />

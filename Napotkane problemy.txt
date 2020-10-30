@@ -1,24 +1,29 @@
 ********************************************************************************************************************************************************************************************
 [Web App]
 
-Przy wywo³aniu GET przez link http://localhost/BeerCup.Web/api/vote
+Przy wywoÂ³aniu GET przez link http://localhost/BeerCup.Web/api/vote
 Votes	null
 Battles	null
-ErrorMessage	"Inicjator typów zg³osi³ wyj¹tek dla typu 'Microsoft.Data.SqlClient.SNINativeMethodWrapper'."
+ErrorMessage	"Inicjator typÃ³w zgÂ³osiÂ³ wyjÂ¹tek dla typu 'Microsoft.Data.SqlClient.SNINativeMethodWrapper'."
 
+1.SposÃ³b
 https://stackoverflow.com/questions/45382993/unable-to-load-dll-sni-dll-entity-framework-core
 
 [...]
 Set the AppPool being used to run as 'LocalSystem' under Identity, this way the appPool will be treated as having higher permissions and should have access.
 [...]
 
+2.SposÃ³b
+Trzeba zainstalowaÄ‡ wersjÄ™ 1.1.1 Microsoft.Data.SqlClient NuGetu w projekcie, ktÃ³rego uÅ¼ywamy jako wykonywalny do wgrywania migracji do bazy danych (BeerCup.Web.DummyConsoleAppForEFCoreMigrations)
+Install-Package Microsoft.Data.SqlClient -Version 1.1.1 
+
 ********************************************************************************************************************************************************************************************
 [Web App]
 
 Postman:
-    "ErrorMessage": "The server principal \"ZARZ¥DZANIE NT\\SYSTEM\" is not able to access the database \"BeerCupData\" under the current security context.\r\nCannot open database \"BeerCupData\" requested by the login. The login failed.
+    "ErrorMessage": "The server principal \"ZARZÂ¥DZANIE NT\\SYSTEM\" is not able to access the database \"BeerCupData\" under the current security context.\r\nCannot open database \"BeerCupData\" requested by the login. The login failed.
 
-W MS SQL trzeba dodaæ usera (np. za pomoc¹ poni¿szego skryptu):
+W MS SQL trzeba dodaÃ¦ usera (np. za pomocÂ¹ poniÂ¿szego skryptu):
 
 USE [BeerCupData]
 GO
@@ -27,12 +32,12 @@ GO
 CREATE USER [iisuser] FOR LOGIN [IIS APPPOOL\DefaultAppPool] WITH DEFAULT_SCHEMA=[dbo]
 GO
 
-i potem dodaæ mu role (PKM>Properties>Membership) db_reader i db_writer
+i potem dodaÃ¦ mu role (PKM>Properties>Membership) db_reader i db_writer
 
 ********************************************************************************************************************************************************************************************
 [Android App]
 
-Kiedy przy debugu apki na Androida wiesza nam siê deploy na:
+Kiedy przy debugu apki na Androida wiesza nam siÃª deploy na:
 Waiting for runtime checks to complete
 
 To robimy:

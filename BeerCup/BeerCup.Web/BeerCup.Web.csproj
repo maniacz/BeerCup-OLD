@@ -203,15 +203,18 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CreateAccountController.cs" />
+    <Compile Include="Database\Entities\BattleBrewery.cs" />
     <Compile Include="Database\Entities\CurrentBattle.cs" />
+    <Compile Include="Database\Repositories\BeerCupAdminRepository.cs" />
     <Compile Include="Database\Repositories\CreateAccountRepository.cs" />
+    <Compile Include="Database\Repositories\IBeerCupAdminRepository.cs" />
     <Compile Include="Database\Repositories\ICreateAccountRepository.cs" />
     <Compile Include="Controllers\VoteController.cs" />
     <Compile Include="Database\BeerCupContext.cs" />
     <Compile Include="Database\Entities\Battle.cs" />
     <Compile Include="Database\Entities\BattleVote.cs" />
     <Compile Include="Database\Entities\Brewery.cs" />
-    <Compile Include="Database\Entities\BreweryBattle.cs" />
+    <Compile Include="Database\Entities\BattleResult.cs" />
     <Compile Include="Database\Entities\UserAccount.cs" />
     <Compile Include="Database\Repositories\IVoteRepository.cs" />
     <Compile Include="Database\Repositories\VoteDbRepository.cs" />
@@ -230,6 +233,10 @@
     <Compile Include="Migrations\20201030133900_CurrentBattle.cs" />
     <Compile Include="Migrations\20201030133900_CurrentBattle.designer.cs">
       <DependentUpon>20201030133900_CurrentBattle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20201031112718_BattleBreweries.cs" />
+    <Compile Include="Migrations\20201031112718_BattleBreweries.designer.cs">
+      <DependentUpon>20201031112718_BattleBreweries.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\BeerCupContextModelSnapshot.cs" />
     <Compile Include="Models\BaseResponse.cs" />

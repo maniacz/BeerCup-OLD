@@ -31,22 +31,26 @@ namespace BeerCup.Web.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BreweryBattle>().HasKey(b => new { b.BreweryId, b.BattleId });
+            modelBuilder.Entity<BattleResult>().HasKey(b => new { b.BreweryId, b.BattleId });
             modelBuilder.Entity<BattleVote>().Property(v => v.CTime).HasDefaultValueSql("getdate()");
 
             modelBuilder.Entity<CurrentBattle>().HasKey(cb => cb.Lock);
             modelBuilder.Entity<CurrentBattle>().Property(cb => cb.Lock).HasDefaultValue('X');
             modelBuilder.Entity<CurrentBattle>(entity => entity.HasCheckConstraint("CK_T1_Locked", "[Lock]='X'"));
+
+            modelBuilder.Entity<BattleBrewery>().HasKey(b => new { b.BattleId, b.BreweryId });
         }
 
         public DbSet<Battle> Battles { get; set; }
 
-        public DbSet<BreweryBattle> BattlesResults { get; set; }
+        public DbSet<BattleResult> BattlesResults { get; set; }
 
         public DbSet<BattleVote> BattlesVotes { get; set; }
 
         public DbSet<Brewery> Breweries { get; set; }
 
         public DbSet<UserAccount> Users { get; set; }
+
+        public DbSet<BattleBrewery> BattleBreweries { get; set; }
     }
 }

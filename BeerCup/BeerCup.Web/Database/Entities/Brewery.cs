@@ -9,7 +9,7 @@ namespace BeerCup.Web.Database.Entities
     {
         public Brewery()
         {
-            BreweryBattles = new List<BreweryBattle>();
+            BreweryBattles = new List<BattleResult>();
         }
 
         public int Id { get; set; }
@@ -18,6 +18,6 @@ namespace BeerCup.Web.Database.Entities
 
         public string BreweryOwner { get; set; }
 
-        public List<BreweryBattle> BreweryBattles { get; set; }
+        public List<BattleResult> BreweryBattles { get; set; }
     }
 }

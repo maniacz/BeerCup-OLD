@@ -52,5 +52,7 @@ namespace BeerCup.Web.Database
         public DbSet<UserAccount> Users { get; set; }
 
         public DbSet<BattleBrewery> BattleBreweries { get; set; }
+
+        public DbSet<CurrentBattle> CurrentBattle { get; set; }
     }
 }

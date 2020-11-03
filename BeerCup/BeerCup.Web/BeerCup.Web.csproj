@@ -202,6 +202,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BeerCupAdminController.cs" />
     <Compile Include="Controllers\CreateAccountController.cs" />
     <Compile Include="Database\Entities\BattleBrewery.cs" />
     <Compile Include="Database\Entities\CurrentBattle.cs" />

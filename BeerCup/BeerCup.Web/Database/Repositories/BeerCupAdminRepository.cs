@@ -12,7 +12,17 @@ namespace BeerCup.Web.Database.Repositories
 
         public List<Brewery> GetCurrentBattleBreweries()
         {
-            throw new NotImplementedException();
+            //int currentBattleId = 1;
+            //var currentBattleBreweries = dbContext.Breweries
+            //    .Where(br => br.Id == dbContext.Battles
+            //    .Where(bt => bt.Id == currentBattleId).Select(bt => bt.Id).FirstOrDefault()).ToList();
+
+            var currentBattleBreweries = dbContext.Breweries
+                .Where(br => br.Id == dbContext.Battles
+                .Where(bt => bt.Id == dbContext.CurrentBattle
+                .Select(cb => cb.BattleId).FirstOrDefault()).Select(bt => bt.Id).FirstOrDefault()).ToList();
+
+            return currentBattleBreweries;
         }
     }
 }

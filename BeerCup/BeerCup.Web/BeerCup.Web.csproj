@@ -241,6 +241,7 @@
     </Compile>
     <Compile Include="Migrations\BeerCupContextModelSnapshot.cs" />
     <Compile Include="Models\BaseResponse.cs" />
+    <Compile Include="Models\BeerCupAdminResponse.cs" />
     <Compile Include="Models\VotesResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebForm1.aspx.cs">

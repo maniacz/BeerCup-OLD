@@ -12,15 +12,11 @@ namespace BeerCup.Web.Database.Repositories
 
         public List<Brewery> GetCurrentBattleBreweries()
         {
-            //int currentBattleId = 1;
-            //var currentBattleBreweries = dbContext.Breweries
-            //    .Where(br => br.Id == dbContext.Battles
-            //    .Where(bt => bt.Id == currentBattleId).Select(bt => bt.Id).FirstOrDefault()).ToList();
-
-            var currentBattleBreweries = dbContext.Breweries
-                .Where(br => br.Id == dbContext.Battles
-                .Where(bt => bt.Id == dbContext.CurrentBattle
-                .Select(cb => cb.BattleId).FirstOrDefault()).Select(bt => bt.Id).FirstOrDefault()).ToList();
+            List<Brewery> currentBattleBreweries = dbContext.Breweries.Where(b => dbContext.BattleBreweries
+                .Where(bb => bb.BattleId == dbContext.CurrentBattle.Select(cb => cb.BattleId).FirstOrDefault())
+                .Select(bb => bb.BreweryId)
+                .Contains(b.Id))
+                .ToList();
 
             return currentBattleBreweries;
         }

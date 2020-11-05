@@ -5,14 +5,9 @@ using System.Web;
 
 namespace BeerCup.Web.Database.Entities
 {
-    public class BreweryBattle
+    public class CurrentBattle
     {
-        public int BreweryId { get; set; }
-
+        public char Lock { get; set; }
         public int BattleId { get; set; }
-
-        public int FinalRank { get; set; }
-
-        public int VotesReceived { get; set; }
     }
 }

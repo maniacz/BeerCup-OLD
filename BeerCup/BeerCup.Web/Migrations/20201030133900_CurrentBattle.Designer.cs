@@ -4,14 +4,16 @@ using BeerCup.Web.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BeerCup.Web.Migrations
 {
     [DbContext(typeof(BeerCupContext))]
-    partial class BeerCupContextModelSnapshot : ModelSnapshot
+    [Migration("20201030133900_CurrentBattle")]
+    partial class CurrentBattle
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,40 +40,6 @@ namespace BeerCup.Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Battles");
-                });
-
-            modelBuilder.Entity("BeerCup.Web.Database.Entities.BattleBrewery", b =>
-                {
-                    b.Property<int>("BattleId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BreweryId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BattleId", "BreweryId");
-
-                    b.ToTable("BattleBreweries");
-                });
-
-            modelBuilder.Entity("BeerCup.Web.Database.Entities.BattleResult", b =>
-                {
-                    b.Property<int>("BreweryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BattleId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FinalRank")
-                        .HasColumnType("int");
-
-                    b.Property<int>("VotesReceived")
-                        .HasColumnType("int");
-
-                    b.HasKey("BreweryId", "BattleId");
-
-                    b.HasIndex("BattleId");
-
-                    b.ToTable("BattlesResults");
                 });
 
             modelBuilder.Entity("BeerCup.Web.Database.Entities.BattleVote", b =>
@@ -118,6 +86,27 @@ namespace BeerCup.Web.Migrations
                     b.ToTable("Breweries");
                 });
 
+            modelBuilder.Entity("BeerCup.Web.Database.Entities.BreweryBattle", b =>
+                {
+                    b.Property<int>("BreweryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BattleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FinalRank")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VotesReceived")
+                        .HasColumnType("int");
+
+                    b.HasKey("BreweryId", "BattleId");
+
+                    b.HasIndex("BattleId");
+
+                    b.ToTable("BattlesResults");
+                });
+
             modelBuilder.Entity("BeerCup.Web.Database.Entities.CurrentBattle", b =>
                 {
                     b.Property<string>("Lock")
@@ -153,19 +142,10 @@ namespace BeerCup.Web.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("BeerCup.Web.Database.Entities.BattleBrewery", b =>
+            modelBuilder.Entity("BeerCup.Web.Database.Entities.BreweryBattle", b =>
                 {
                     b.HasOne("BeerCup.Web.Database.Entities.Battle", null)
-                        .WithMany("BattleBreweries")
-                        .HasForeignKey("BattleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BeerCup.Web.Database.Entities.BattleResult", b =>
-                {
-                    b.HasOne("BeerCup.Web.Database.Entities.Battle", null)
-                        .WithMany("BattleResults")
+                        .WithMany("BreweryBattles")
                         .HasForeignKey("BattleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

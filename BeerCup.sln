@@ -15,6 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerCup.Web.DummyConsoleApp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{558B09F5-65A5-4DB7-85FA-2D4120AA5063}"
 	ProjectSection(SolutionItems) = preProject
+		BeerCup initial data.sql = BeerCup initial data.sql
 		Napotkane problemy.txt = Napotkane problemy.txt
 	EndProjectSection
 EndProject

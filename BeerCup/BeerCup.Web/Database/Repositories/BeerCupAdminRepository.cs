@@ -10,12 +10,13 @@ namespace BeerCup.Web.Database.Repositories
     {
         private BeerCupContext dbContext = new BeerCupContext();
 
-        public List<Brewery> GetCurrentBattleBreweries()
+        public List<string> GetCurrentBattleBreweries()
         {
-            List<Brewery> currentBattleBreweries = dbContext.Breweries.Where(b => dbContext.BattleBreweries
+            List<string> currentBattleBreweries = dbContext.Breweries.Where(b => dbContext.BattleBreweries
                 .Where(bb => bb.BattleId == dbContext.CurrentBattle.Select(cb => cb.BattleId).FirstOrDefault())
                 .Select(bb => bb.BreweryId)
                 .Contains(b.Id))
+                .Select(b => b.BreweryName)
                 .ToList();
 
             return currentBattleBreweries;

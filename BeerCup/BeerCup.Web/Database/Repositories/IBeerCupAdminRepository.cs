@@ -9,6 +9,6 @@ namespace BeerCup.Web.Database.Repositories
 {
     public interface IBeerCupAdminRepository
     {
-        List<Brewery> GetCurrentBattleBreweries();
+        List<string> GetCurrentBattleBreweries();
     }
 }

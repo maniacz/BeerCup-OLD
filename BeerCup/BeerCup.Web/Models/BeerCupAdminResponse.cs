@@ -8,6 +8,6 @@ namespace BeerCup.Web.Models
 {
     public class BeerCupAdminResponse : BaseResponse
     {
-        public List<Brewery> CurrentBattleBreweries { get; set; }
+        public List<string> CurrentBattleBreweries { get; set; }
     }
 }

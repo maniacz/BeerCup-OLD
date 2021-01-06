@@ -50,25 +50,25 @@ INSERT [dbo].[Breweries] ([Id], [BreweryName], [BreweryOwner]) VALUES (16, N'Mod
 GO
 SET IDENTITY_INSERT [dbo].[Breweries] OFF
 GO
-INSERT [dbo].[BattleBreweries] ([BattleId], [BreweryId]) VALUES (1, 4)
+INSERT [dbo].[BreweryBattle] ([BattleId], [BreweryId]) VALUES (1, 4)
 GO
-INSERT [dbo].[BattleBreweries] ([BattleId], [BreweryId]) VALUES (1, 6)
+INSERT [dbo].[BreweryBattle] ([BattleId], [BreweryId]) VALUES (1, 6)
 GO
-INSERT [dbo].[BattleBreweries] ([BattleId], [BreweryId]) VALUES (1, 7)
+INSERT [dbo].[BreweryBattle] ([BattleId], [BreweryId]) VALUES (1, 7)
 GO
-INSERT [dbo].[BattleBreweries] ([BattleId], [BreweryId]) VALUES (1, 8)
+INSERT [dbo].[BreweryBattle] ([BattleId], [BreweryId]) VALUES (1, 8)
 GO
-INSERT [dbo].[BattleBreweries] ([BattleId], [BreweryId]) VALUES (1, 10)
+INSERT [dbo].[BreweryBattle] ([BattleId], [BreweryId]) VALUES (1, 10)
 GO
-INSERT [dbo].[BattleBreweries] ([BattleId], [BreweryId]) VALUES (3, 1)
+INSERT [dbo].[BreweryBattle] ([BattleId], [BreweryId]) VALUES (3, 1)
 GO
-INSERT [dbo].[BattleBreweries] ([BattleId], [BreweryId]) VALUES (3, 2)
+INSERT [dbo].[BreweryBattle] ([BattleId], [BreweryId]) VALUES (3, 2)
 GO
-INSERT [dbo].[BattleBreweries] ([BattleId], [BreweryId]) VALUES (3, 3)
+INSERT [dbo].[BreweryBattle] ([BattleId], [BreweryId]) VALUES (3, 3)
 GO
-INSERT [dbo].[BattleBreweries] ([BattleId], [BreweryId]) VALUES (3, 5)
+INSERT [dbo].[BreweryBattle] ([BattleId], [BreweryId]) VALUES (3, 5)
 GO
-INSERT [dbo].[BattleBreweries] ([BattleId], [BreweryId]) VALUES (3, 9)
+INSERT [dbo].[BreweryBattle] ([BattleId], [BreweryId]) VALUES (3, 9)
 GO
 SET IDENTITY_INSERT [dbo].[BattlesVotes] ON 
 GO

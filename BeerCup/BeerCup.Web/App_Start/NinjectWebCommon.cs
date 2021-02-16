@@ -64,6 +64,7 @@ namespace BeerCup.Web.App_Start
         {
             kernel.Bind<IVoteRepository>().To<VoteDbRepository>();
             kernel.Bind<ICreateAccountRepository>().To<CreateAccountRepository>();
+            kernel.Bind<IBreweryRepository>().To<BreweryRepository>();
         }
     }
 }

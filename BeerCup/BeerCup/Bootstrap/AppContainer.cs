@@ -20,6 +20,7 @@ namespace BeerCup.Bootstrap
 
             //Services - Data
 
+            _container = builder.Build();
         }
     }
 }

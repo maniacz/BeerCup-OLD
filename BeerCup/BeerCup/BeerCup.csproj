@@ -48,9 +48,4 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Contracts\Services\Data\" />
-    <Folder Include="Services\Data\" />
-  </ItemGroup>
 </Project>

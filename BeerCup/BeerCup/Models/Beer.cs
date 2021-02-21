@@ -9,5 +9,7 @@ namespace BeerCup.Models
         public byte BeerNumber { get; set; }
 
         public bool IsChosenByVoter { get; set; }
+
+        public string BrewedBy { get; set; }
     }
 }

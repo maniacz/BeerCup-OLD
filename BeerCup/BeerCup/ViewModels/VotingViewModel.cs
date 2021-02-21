@@ -1,5 +1,7 @@
-﻿using BeerCup.Data;
+﻿using BeerCup.Contracts.Services.Data;
+using BeerCup.Data;
 using BeerCup.Models;
+using BeerCup.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,8 +14,9 @@ using Xamarin.Forms.MultiSelectListView;
 
 namespace BeerCup.ViewModels
 {
-    class VotingViewModel : INotifyPropertyChanged
+    class VotingViewModel : ViewModelBase
     {
+        /* obsolete - przeniesione do ViewModelBase
         #region Property
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -36,12 +39,16 @@ namespace BeerCup.ViewModels
         }
 
         #endregion
+        */
+
+        private readonly IBattleDataService _battleDataService;
 
         public MultiSelectObservableCollection<Beer> Beers { get; }
 
         public ICommand VoteCommand => new Command(Vote);
         //public ICommand VoteCommand { get { return new Command(Vote); } }
 
+        //obsolete
         public VotingViewModel()
         {
             Beers = new MultiSelectObservableCollection<Beer>();
@@ -54,6 +61,24 @@ namespace BeerCup.ViewModels
 
             //Beers[0].IsSelected = true;
             //Beers[1].IsSelected = true;
+        }
+
+        public VotingViewModel(IBattleDataService battleDataService)
+        {
+            _battleDataService = battleDataService;
+        }
+
+        public override async Task InitializeAsync(object data)
+        {
+            IsBusy = true;
+
+            var breweryNames = await _battleDataService.GetStartingInBattleBreweryNamesAsync();
+
+            Beers.Clear();
+            foreach (var brewery in breweryNames)
+            {
+                Beers.Add(new Beer { BrewedBy = brewery });
+            }
         }
 
         VoteManager voteManager = new VoteManager();

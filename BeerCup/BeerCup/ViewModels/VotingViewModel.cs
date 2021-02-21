@@ -79,6 +79,8 @@ namespace BeerCup.ViewModels
             {
                 Beers.Add(new Beer { BrewedBy = brewery });
             }
+
+            IsBusy = false;
         }
 
         VoteManager voteManager = new VoteManager();

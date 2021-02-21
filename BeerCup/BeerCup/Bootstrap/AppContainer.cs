@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BeerCup.ViewModels;
+using BeerCup.Services.Data;
+using BeerCup.Contracts.Services.Data;
 
 namespace BeerCup.Bootstrap
 {
@@ -19,6 +21,7 @@ namespace BeerCup.Bootstrap
             builder.RegisterType<VotingViewModel>();
 
             //Services - Data
+            builder.RegisterType<BattleDataService>().As<IBattleDataService>();
 
             _container = builder.Build();
         }

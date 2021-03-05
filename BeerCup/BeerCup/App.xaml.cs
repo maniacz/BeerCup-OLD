@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using BeerCup.Services;
 using BeerCup.Views;
+using BeerCup.Bootstrap;
+using BeerCup.Contracts.Services.General;
 
 namespace BeerCup
 {
@@ -13,11 +15,29 @@ namespace BeerCup
         {
             InitializeComponent();
 
+            InitializeApp();
+
+            InitializeNavigation();
+
             DependencyService.Register<MockDataStore>();
-            MainPage = new MainPage();
+            
+            //MainPage = new MainPage();
+
+
             //MainPage = new TestPage();
             //MainPage = new VotingPage();
             //MainPage = new CreateAccountPage();
+        }
+
+
+        private void InitializeApp()
+        {
+            AppContainer.RegisterDependencies();
+        }
+        private void InitializeNavigation()
+        {
+            var navigationService = AppContainer.Resolve<INavigationService>();
+            navigationService.InitializeAsync();
         }
 
         protected override void OnStart()

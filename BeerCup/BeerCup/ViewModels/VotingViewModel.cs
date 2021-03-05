@@ -1,4 +1,5 @@
 ﻿using BeerCup.Contracts.Services.Data;
+using BeerCup.Contracts.Services.General;
 using BeerCup.Data;
 using BeerCup.Models;
 using BeerCup.ViewModels.Base;
@@ -49,7 +50,8 @@ namespace BeerCup.ViewModels
         //public ICommand VoteCommand { get { return new Command(Vote); } }
 
         //obsolete
-        public VotingViewModel()
+        public VotingViewModel(INavigationService navigationService)
+            : base(navigationService)
         {
             Beers = new MultiSelectObservableCollection<Beer>();
 
@@ -63,7 +65,8 @@ namespace BeerCup.ViewModels
             //Beers[1].IsSelected = true;
         }
 
-        public VotingViewModel(IBattleDataService battleDataService)
+        public VotingViewModel(INavigationService navigationService, IBattleDataService battleDataService)
+            : base(navigationService)
         {
             _battleDataService = battleDataService;
         }

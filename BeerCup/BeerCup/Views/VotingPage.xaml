@@ -8,9 +8,7 @@
              x:Class="BeerCup.Views.VotingPage"
              xmlns:lv="clr-namespace:Xamarin.Forms.MultiSelectListView;assembly=Xamarin.Forms.MultiSelectListView" Padding="0,20,0,0">
 
-    <ContentPage.BindingContext>
-        <local:VotingViewModel />
-    </ContentPage.BindingContext>
+
     <StackLayout>
         <ListView x:Name="lvBeers" ItemsSource="{Binding Beers}" lv:MultiSelect.Enable="True">
             <ListView.ItemTemplate>

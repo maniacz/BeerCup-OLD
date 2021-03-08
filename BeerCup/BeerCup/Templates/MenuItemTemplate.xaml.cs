@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace BeerCup.Views
+namespace BeerCup.Templates
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainViewDetail : ContentPage
+    public partial class MenuItemTemplate : ContentView
     {
-        public MainViewDetail()
+        public MenuItemTemplate()
         {
             InitializeComponent();
         }

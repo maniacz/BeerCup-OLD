@@ -15,6 +15,7 @@ namespace BeerCup.Views
     {
         CreateAccountViewModel createAccountViewModel;
 
+        /*
         public CreateAccountPage()
         {
             InitializeComponent();
@@ -32,5 +33,6 @@ namespace BeerCup.Views
             else
                 DisplayAlert("Rejestracja", "Podane hasła nie są takie same", "OK");
         }
+        */
     }
 }

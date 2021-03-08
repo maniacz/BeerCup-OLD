@@ -1,4 +1,6 @@
-﻿using BeerCup.Data;
+﻿using BeerCup.Contracts.Services.General;
+using BeerCup.Data;
+using BeerCup.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,11 +8,12 @@ using Xamarin.Forms;
 
 namespace BeerCup.ViewModels
 {
-    public class CreateAccountViewModel : BaseViewModel
+    public class CreateAccountViewModel : ViewModelBase
     {
         UserAccountManager userAccountManager;
 
-        public CreateAccountViewModel()
+        public CreateAccountViewModel(INavigationService navigationService)
+            : base(navigationService)
         {
             userAccountManager = new UserAccountManager();
         }

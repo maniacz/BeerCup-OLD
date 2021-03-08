@@ -2,20 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeerCup.Models
+namespace BeerCup.Enums
 {
     public enum MenuItemType
     {
+        Home,
         TodaysBattle,
         MyAccount,
         Battles,
         Browse,
         About
-    }
-    public class HomeMenuItem
-    {
-        public MenuItemType Id { get; set; }
-
-        public string Title { get; set; }
     }
 }
